@@ -10,7 +10,7 @@ class AppViewModelFactory @Inject constructor(private val viewModelMap: Map<Clas
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val creator = viewModelMap[modelClass] ?: viewModelMap.entries.firstOrNull {
             modelClass.isAssignableFrom(it.key)
-        }?.value ?: throw IllegalArgumentException("No ViewModel provider is bound for class $modelClass")
+        }?.value ?: throw IllegalArgumentException("No ViewModel provider is bound for class $modelClass") as Throwable
 
         try {
             @Suppress("UNCHECKED_CAST")
