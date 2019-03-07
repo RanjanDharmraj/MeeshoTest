@@ -1,19 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+    <data>
+        <variable name="viewModel"
+                  type="com.dharmraj.meeshotest.ui.MainViewModel"/>
 
-</android.support.constraint.ConstraintLayout>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.MainActivity">
+
+        <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@{appBarViewmodel.title}"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <EditText
+                    android:id="@+id/et_github_owner_name"
+                    android:maxLines="1"
+                    android:text="@={viewmodel.githubOwnerName}"
+                    android:inputType="text"
+                    android:hint="@string/github_owner_name"
+                    android:imeOptions="actionNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"/>
+
+            <EditText
+                    android:id="@+id/et_github_repo_name"
+                    android:maxLines="1"
+                    android:text="@={viewmodel.githubRepoName}"
+                    android:inputType="text"
+                    android:hint="@string/github_repo_name"
+                    android:imeOptions="actionNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/et_github_owner_name"/>
+
+
+            <FrameLayout
+                    android:id="@+id/btn_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/et_github_repo_name">
+                <android.support.design.widget.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        app:elevation="0dp"
+                        app:fabCustomSize="45dp"
+                        app:srcCompat="@drawable/ic_arrow_forward"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick="@{() -> viewmodel.onSubmitOnClick()}"
+                        android:visibility="@{viewmodel.loading ? View.INVISIBLE : View.VISIBLE}"
+                        android:layout_height="wrap_content"/>
+
+                <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:visibility="@{viewmodel.loading ? View.VISIBLE : View.INVISIBLE}"/>
+            </FrameLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>
