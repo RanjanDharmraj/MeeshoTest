@@ -1,7 +1,7 @@
 package com.dharmraj.meeshotest.di
 
-import com.dharmraj.meeshotest.ui.MainActivity
-import com.dharmraj.meeshotest.ui.MainActivityModule
+import com.dharmraj.meeshotest.ui.main.MainActivity
+import com.dharmraj.meeshotest.ui.main.MainActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -3,4 +3,7 @@
     <string name="github_owner_name">Github Owner Name</string>
     <string name="github_repo_name">Github Repo Name</string>
     <string name="btn_submit">Submit</string>
+    <string name="error_all_fields_blank">All fields are blank</string>
+    <string name="error_owner_name_blank">Owner name is blank</string>
+    <string name="error_repo_name_blank">Repo name is empty</string>
 </resources>
