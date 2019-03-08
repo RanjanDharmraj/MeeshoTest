@@ -15,8 +15,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.show_open_repo.ShowOpenRepoActivity">
-        </activity>
+        <activity android:name=".ui.show_open_repo.ShowOpenRepoActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
         <activity
                 android:name=".ui.main.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">

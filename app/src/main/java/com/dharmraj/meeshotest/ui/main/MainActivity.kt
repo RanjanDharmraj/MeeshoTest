@@ -3,6 +3,7 @@ package com.dharmraj.meeshotest.ui.main
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.support.design.widget.Snackbar
 import android.view.View
 import com.dharmraj.meeshotest.R
 import com.dharmraj.meeshotest.databinding.ActivityMainBinding
+import com.dharmraj.meeshotest.ui.show_open_repo.ShowOpenRepoActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
@@ -36,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.navigator.observe(this, Observer {
             it?.run {
-
+                if(it){
+                    navigate()
+                }
             }
         })
 
@@ -52,5 +56,10 @@ class MainActivity : AppCompatActivity() {
         Snackbar
             .make(rootView, message, Snackbar.LENGTH_SHORT)
             .show()
+    }
+
+    fun navigate() {
+        val intent = Intent(this, ShowOpenRepoActivity::class.java)
+        startActivity(intent)
     }
 }

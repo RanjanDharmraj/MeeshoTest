@@ -17,6 +17,9 @@ class ShowOpenRepoViewModel @Inject constructor(
 
     init {
         title.value = "Open Pull Requests"
+    }
+
+    fun fetchPullRequestData() {
         pullRequestLists.value = repository.getPreFetchedPullRequests()
     }
 
