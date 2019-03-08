@@ -9,6 +9,7 @@ import io.reactivex.ObservableEmitter
 import retrofit2.Call
 
 abstract class ServiceAbstract(val context: Context) {
+
     private val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     private fun isNetworkConnected(): Boolean {

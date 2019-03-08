@@ -7,10 +7,7 @@ import com.dharmraj.meeshotest.network.ServiceAbstract
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class PullRequestService @Inject constructor(
-    context: Application
-    , val apiService: ApiService
-) : ServiceAbstract(context), Service {
+class PullRequestService @Inject constructor(context: Application, private val apiService: ApiService) : ServiceAbstract(context), Service {
 
     override fun getPullRequests(githubOwnerName: String, githubRepoName: String): Observable<List<GitPullRequest>> {
         return getObservableFromCall(apiService.getAllPullRequests(githubOwnerName, githubRepoName))

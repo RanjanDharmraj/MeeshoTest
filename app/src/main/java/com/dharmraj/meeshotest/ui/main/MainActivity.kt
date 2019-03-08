@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        AndroidInjection.inject(this)
+        AndroidInjection.inject(this)
 
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)

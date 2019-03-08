@@ -1,14 +1,14 @@
 package com.dharmraj.meeshotest.di
 
-import android.app.Application
 import com.dharmraj.meeshotest.BuildConfig
 import com.dharmraj.meeshotest.network.ApiService
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.dharmraj.meeshotest.network.repository.PullRequestRepository
+import com.dharmraj.meeshotest.network.repository.PullRequestRepositoryImpl
+import com.dharmraj.meeshotest.network.source.PullRequestService
+import com.dharmraj.meeshotest.network.source.Service
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,6 +19,12 @@ import javax.inject.Singleton
 
 @Module
 abstract class AppModule {
+
+    @Binds
+    abstract fun provideApiService(pullRequestService: PullRequestService): Service
+
+    @Binds
+    abstract fun provideRepository(repository: PullRequestRepositoryImpl): PullRequestRepository
 
     @Module
     companion object {

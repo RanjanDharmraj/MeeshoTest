@@ -83,7 +83,7 @@ class MainViewModel @Inject constructor(
                     }
                 }
         } else {
-            val State: State =
+            val state: State =
                 if (ownerName.isNullOrBlank() && repoName.isNullOrBlank())
                     State.ValidationError(ValidationErrorType.ALL_FIELDS_BLANK)
                 else if (ownerName.isNullOrBlank())
@@ -91,7 +91,7 @@ class MainViewModel @Inject constructor(
                 else
                     State.ValidationError(ValidationErrorType.REPO_NAME_BLANK)
 
-            return Observable.just(State)
+            return Observable.just(state)
         }
     }
 
