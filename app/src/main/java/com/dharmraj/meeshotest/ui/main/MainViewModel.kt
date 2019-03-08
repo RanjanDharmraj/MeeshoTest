@@ -40,7 +40,7 @@ class MainViewModel @Inject constructor(
         val ownerName = githubOwnerName.value
         val repoName = githubRepoName.value
 
-        login(ownerName,repoName)
+        getPullRequests(ownerName,repoName)
             .applySchedulers()
             .subscribe ({
                 when (it) {
@@ -66,7 +66,7 @@ class MainViewModel @Inject constructor(
     }
 
     @SuppressLint("CheckResult")
-    fun login(ownerName: String?, repoName: String?): Observable<State> {
+    fun getPullRequests(ownerName: String?, repoName: String?): Observable<State> {
 
         return if (!ownerName.isNullOrEmpty() && !repoName.isNullOrEmpty()) {
 
