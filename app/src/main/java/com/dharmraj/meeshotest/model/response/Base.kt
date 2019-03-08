@@ -1,4 +1,4 @@
-package com.dharmraj.meeshotest.model
+package com.dharmraj.meeshotest.model.response
 
 data class Base (
     val label: String,

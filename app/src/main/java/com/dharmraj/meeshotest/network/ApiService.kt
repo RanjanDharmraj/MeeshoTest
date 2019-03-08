@@ -1,6 +1,6 @@
 package com.dharmraj.meeshotest.network
 
-import com.dharmraj.meeshotest.model.GitPullRequest
+import com.dharmraj.meeshotest.model.response.GitPullRequest
 import retrofit2.Call
 import retrofit2.http.*
 

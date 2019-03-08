@@ -1,7 +1,6 @@
 package com.dharmraj.meeshotest.ui.show_open_repo
 
 import android.app.Application
-import com.dharmraj.meeshotest.model.GitPullRequest
 import com.dharmraj.meeshotest.model.PullRequestItem
 import com.dharmraj.meeshotest.network.repository.PullRequestRepository
 import com.dharmraj.meeshotest.ui.base.BaseViewModel

@@ -1,6 +1,6 @@
 package com.dharmraj.meeshotest.network.repository
 
-import com.dharmraj.meeshotest.model.GitPullRequest
+import com.dharmraj.meeshotest.model.response.GitPullRequest
 import com.dharmraj.meeshotest.model.PullRequestItem
 import io.reactivex.Observable
 

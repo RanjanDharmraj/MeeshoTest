@@ -1,7 +1,7 @@
 package com.dharmraj.meeshotest.network.source
 
 import android.app.Application
-import com.dharmraj.meeshotest.model.GitPullRequest
+import com.dharmraj.meeshotest.model.response.GitPullRequest
 import com.dharmraj.meeshotest.network.ApiService
 import com.dharmraj.meeshotest.network.ServiceAbstract
 import io.reactivex.Observable
